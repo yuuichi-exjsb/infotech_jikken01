@@ -1,0 +1,64 @@
+#include<xc.h>
+#include<pic.h>
+#define _XTAL_FREQ 8000000
+
+#pragma config FOSC = INTOSCIO
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config MCLRE = OFF
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CCPMX = RB3
+#pragma config CP = OFF
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+void main(void)
+{
+    OSCCON = 0b01110000;
+    
+    PORTA = 0x00;
+    PORTB = 0x00;
+    TRISA = 0x00;
+    TRISB = 0x00;
+    
+    unsigned char pra_zero = 0b00000011;//初期状態
+    unsigned char pra0 = 0b00000010;//RA0
+    unsigned char pra1= 0b00000001;//RA1
+    
+    unsigned char pob_0 = 0b00111111;//0
+    unsigned char pob_1= 0b00000110;//1
+    unsigned char pob_2= 0b01011011;//2
+    unsigned char pob_3= 0b01001111;//3
+    unsigned char pob_4= 0b01100110;//4
+    unsigned char pob_5= 0b01101101;//5
+    unsigned char pob_6= 0b01111100;//6
+    unsigned char pob_7= 0b00000111;//7
+    unsigned char pob_8= 0b00111111;//8
+    unsigned char pob_9= 0b01101111;//9
+    
+    
+    unsigned char pra[2] = {pra0,pra1};
+    unsigned char prb[10] = {pob_0,pob_1,pob_2,pob_3,pob_4,pob_5,pob_6,pob_7,pob_8,pob_9};
+    
+    
+    int pob_cnt = 0;
+    
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            for(int k=0;k<500;k++){
+                PORTA = pra[(pob_cnt)%2] ;
+                PORTB = prb[i];
+                __delay_ms(1);
+                pob_cnt += 1;
+                PORTA = pra[(pob_cnt)%2] ;
+                PORTB = prb[j];
+                pob_cnt += 1;
+                __delay_ms(1);
+            }
+            
+        }
+    }
+}
