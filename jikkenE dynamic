@@ -36,7 +36,7 @@ void main(void)
     unsigned char pob_5= 0b01101101;//5
     unsigned char pob_6= 0b01111100;//6
     unsigned char pob_7= 0b00000111;//7
-    unsigned char pob_8= 0b00111111;//8
+    unsigned char pob_8= 0b01111111;//8
     unsigned char pob_9= 0b01101111;//9
     
     
