@@ -25,8 +25,8 @@ void main(void)
     TRISB = 0x00;
     
     unsigned char pra_zero = 0b00000011;//初期状態
-    unsigned char pra0 = 0b00000010;//RA0
-    unsigned char pra1= 0b00000001;//RA1
+    unsigned char pra0 = 0b00000001;//RA0
+    unsigned char pra1= 0b00000010;//RA1
     
     unsigned char pob_0 = 0b00111111;//0
     unsigned char pob_1= 0b00000110;//1
