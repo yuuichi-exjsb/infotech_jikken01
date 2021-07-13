@@ -51,11 +51,11 @@ void main(void)
             {
                 pob_cnt = 0;
             }
-        }
-       else{
+            else{
             pob_cnt += 1;
             }
         }
+       
    
     }
         
