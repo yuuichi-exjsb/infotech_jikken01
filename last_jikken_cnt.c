@@ -21,7 +21,7 @@ void main(void)
     
     PORTA = 0x00;
     PORTB = 0x00;
-    TRISA = 0b00000100;//2ビットを入力に
+    TRISA = 0xff;//入力に
     TRISB = 0x00;
     
     
@@ -45,7 +45,7 @@ void main(void)
     {
          PORTB = prb[pob_cnt];
         __delay_ms(1000);
-        if (PORTAbits.RA2 == 1)
+        if (PORTA == 0b00000001)||(PORTA == 0b00000010)||(PORTA == 0b00000100)||(PORTA == 0b00001000)||(PORTA == 0b00010000)||(PORTA == 0b00100000)||(PORTA == 0b01000000)||(PORTA == 0b10000000));
         {
             if (pob_cnt == 9)
             {
