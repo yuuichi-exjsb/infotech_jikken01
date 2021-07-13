@@ -45,7 +45,7 @@ void main(void)
     {
          PORTB = prb[pob_cnt];
         __delay_ms(1000);
-        if (PORTA ==0b00000000 )
+        if (PORTA ==0b00000001 )
         {
             if (pob_cnt == 9)
             {
@@ -55,9 +55,12 @@ void main(void)
             pob_cnt += 1;
             }
         }
+        else if{
+            pob_cnt = 5;
+        }
     
    
-    }else{}
+    }
         
     
     
