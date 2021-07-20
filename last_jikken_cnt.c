@@ -55,6 +55,9 @@ void main(void)
             pob_cnt += 1;
             }
         }
+        if(pob_cnt == 7){
+            PORTB = 0b10000111;
+        }
        
    
     }
